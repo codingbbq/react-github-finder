@@ -1,14 +1,10 @@
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import UserItem from './UserItem';
 import Githubcontext from '../../context/github/GithubContext';
 
 function UserResults() {
     
-    const { users, loading, fetchUsers } = useContext(Githubcontext);
-
-    useEffect(() => {
-        fetchUsers();
-    }, []);
+    const { users, loading } = useContext(Githubcontext);
 
     if(!loading) {
         return (
@@ -19,7 +15,11 @@ function UserResults() {
             </div>
         )
     } else {
-        return <h3>Loading...</h3>
+        return (
+            <div className="container mx-auto">
+                <h3>Loading...</h3>
+            </div>
+        )
     }
 }
 
