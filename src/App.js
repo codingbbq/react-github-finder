@@ -11,7 +11,7 @@ function App() {
   return (
     <GithubProvider>
       <AlertProvider>
-        <Router>
+        <Router basename='react-github-finder'>
           <div className='flex flex-col justify-between h-screen'>
             <Navbar />
 
