@@ -5,11 +5,12 @@ import Githubcontext from '../../context/github/GithubContext';
 import { useParams } from 'react-router-dom';
 import RepoList from '../repos/RepoList';
 function User() {
-  const { getUser, user, loading } = useContext(Githubcontext);
+  const { getUser, user, loading, getUserRepos, repos } = useContext(Githubcontext);
   const params = useParams();
 
   useEffect(() => {
     getUser(params.login);
+    getUserRepos(params.login);
   }, []);
 
   if (loading) {
@@ -77,7 +78,7 @@ function User() {
             </div>
           </div>
 
-          <div className='w-full rounded-lg shadow-md bg-base-100 stats'>
+          <div className='w-full py-5 mb-6 rounded-lg shadow-md bg-base-100 stats'>
             {location && (
               <div className='stat'>
                 <div className='stat-title text-md'>Location</div>
@@ -160,7 +161,7 @@ function User() {
 
         </div>
 
-        <RepoList />
+        <RepoList repos={repos} />
       </div>
     </>
   );
