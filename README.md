@@ -1,7 +1,7 @@
 # React Github Finder
 
 This is a simple demo project to practice and improve my understanding of how React works. 
-You can check the working demo at [https://codingbbq.github.io/react-github-finder](React Github Finder)
+You can check the working demo at [React Github Finder](https://codingbbq.github.io/react-github-finder)
 
 ## Available Scripts
 
