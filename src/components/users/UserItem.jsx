@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 function UserItem({ user: { login, avatar_url } }) {
   return (
     <>
-      <div className='card shadow-md compact side bg-base-100'>
-        <div className='flex-row items-center space-x-4 card-body'>
+      <div className='card shadow-md compact bg-base-100'>
+        <div className='flex-row items-center card-body'>
           <div>
             <div className='avatar'>
               <div className='rounded-full shadow w-14 h-14'>
