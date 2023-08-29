@@ -14,18 +14,9 @@ export const GithubProvider = ({children}) => {
 
     const [state, dispatch] = useReducer(GithubReducer, initialState);
 
-    const clearUsers = () => {
-        dispatch({
-            type: 'CLEAR_USERS'
-        });
-    }
-
-    const setLoading = () => dispatch({ type: 'SET_LOADING' })
-
     return <Githubcontext.Provider value={{
         ...state,
-        dispatch,
-        clearUsers
+        dispatch
     }}>
         {children}
     </Githubcontext.Provider>

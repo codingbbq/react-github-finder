@@ -13,12 +13,7 @@ export const searchUsers = async (text) => {
 export const getUser = async (login) => {
     const response = await fetch(`https://api.github.com/users/${login}`);
     const data = await response.json();
-
-    if(data.status === 404) {
-        window.location = '/notfound';
-    } else {
-        return data;
-    }       
+    return data;     
 }
 
 // Get user repos
@@ -32,4 +27,17 @@ export const getUserRepos = async (username) => {
     const data  = await response.json();
 
     return data;
+}
+
+/* Get User and Repos both together */
+export const getUserAndRepoData = async (login) => {
+    const [userData, repoData] = await Promise.all([
+        getUser(login),
+        getUserRepos(login)
+    ]);
+
+    return {
+        user: userData,
+        repo: repoData
+    }
 }
